@@ -1,0 +1,92 @@
+@import url('https://fonts.cdnfonts.com/css/garet');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --blue: #1400FF;
+  --bd: #0E00CC;
+  --white: #FFF;
+  --off: #F4F5F9;
+  --black: #080808;
+  --gray: #666;
+  --f: 'Garet', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--f);
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer utilities {
+  .font-garet {
+    font-family: 'Garet', sans-serif;
+  }
+
+  .animate-fadeUp-1 {
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.1s forwards;
+  }
+
+  .animate-fadeUp-2 {
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.2s forwards;
+  }
+
+  .animate-fadeUp-3 {
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.32s forwards;
+  }
+
+  .animate-fadeUp-4 {
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.44s forwards;
+  }
+
+  .animate-fadeUp-5 {
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.3s forwards;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.reveal.vis {
+  opacity: 1;
+  transform: translateY(0);
+}
