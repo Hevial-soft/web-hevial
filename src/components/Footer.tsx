@@ -44,12 +44,26 @@ export function Footer() {
           <Logo size="sm" />
           <div className="flex items-center gap-5">
             <a
+              href="/returns"
+              className="text-[11px] text-[#666] no-underline transition-colors duration-150 hover:text-[#1400FF]"
+            >
+              Политика возврата
+            </a>
+            <a
               href="/Hevial_Oferta.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[11px] text-[#666] no-underline transition-colors duration-150 hover:text-[#1400FF]"
             >
-              Оферта
+              Договор оферта
+            </a>
+            <a
+              href="/privacy_policy_hevial.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[11px] text-[#666] no-underline transition-colors duration-150 hover:text-[#1400FF]"
+            >
+              Договор о политики обработки персональных данных
             </a>
             <div className="text-[11px] text-[#666]">© 2025 Hevial. Все права защищены.</div>
           </div>
