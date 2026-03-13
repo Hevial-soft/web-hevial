@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
+import { Container } from './Container'
 import portfolio01 from '../assets/portfolio_01.jpg'
 import portfolio02 from '../assets/portfolio_02.jpg'
 
@@ -34,13 +35,23 @@ const SLIDES: Slide[] = [
     name: 'Скульптура «Пламя»',
     sub: 'Художественная печать · постобработка и покраска',
   },
+    {
+    img: portfolio01,
+    tag: 'Промышленный · PA-CF',
+    name: 'Реактор высокого давления АН-02',
+    sub: 'Детали корпуса и фланцы · цветная многоматериальная печать',
+  },
+  {
+    img: portfolio02,
+    tag: 'Декор · PLA',
+    name: 'Скульптура «Пламя»',
+    sub: 'Художественная печать · постобработка и покраска',
+  },
 ]
 
-// На мобильном (<768px): карточка 80%, видно начало следующей
-// На десктопе (>=768px): карточка 35%, видно 2+ карточки
-const MOBILE_W = 80   // %
-const DESKTOP_W = 35  // %
-const GAP = 16        // px
+const MOBILE_W = 80
+const DESKTOP_W = 35
+const GAP = 16
 
 export function PortfolioSlider() {
   const [current, setCurrent] = useState(0)
@@ -73,8 +84,7 @@ export function PortfolioSlider() {
 
   return (
     <section className="py-14 md:py-20 bg-white border-t border-black/[0.06]">
-      {/* Заголовок */}
-      <div className="px-5 sm:px-8 md:px-14 mb-8 flex items-end justify-between">
+      <Container className="mb-8 flex items-end justify-between">
         <h2 className="font-garet text-lg md:text-[26px] font-extrabold text-[#080808] tracking-tight">
           Наши работы
         </h2>
@@ -92,11 +102,10 @@ export function PortfolioSlider() {
             </svg>
           </button>
         </div>
-      </div>
+      </Container>
 
-      {/* Слайдер */}
-      <div
-        className="px-5 sm:px-8 md:px-14 overflow-hidden"
+      <Container
+        className="overflow-hidden"
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
@@ -108,22 +117,11 @@ export function PortfolioSlider() {
           }}
         >
           {SLIDES.map((slide, i) => (
-            <div
-              key={i}
-              className="flex-shrink-0"
-              style={{ width: `${cardW}%` }}
-            >
+            <div key={i} className="flex-shrink-0" style={{ width: `${cardW}%` }}>
               <div className="relative overflow-hidden" style={{ aspectRatio: '1/1' }}>
-                <img
-                  src={slide.img}
-                  alt={slide.name}
-                  loading="lazy"
-                  className="w-full h-full object-cover"
-                />
-                <div
-                  className="absolute inset-0"
-                  style={{ background: 'linear-gradient(to top, rgba(8,8,8,0.92) 0%, rgba(8,8,8,0.4) 50%, transparent 100%)' }}
-                />
+                <img src={slide.img} alt={slide.name} loading="lazy" className="w-full h-full object-cover" />
+                <div className="absolute inset-0"
+                  style={{ background: 'linear-gradient(to top, rgba(8,8,8,0.92) 0%, rgba(8,8,8,0.4) 50%, transparent 100%)' }} />
                 <div className="absolute bottom-0 left-0 right-0 p-5 md:p-7">
                   <div className="inline-block font-garet text-[8px] font-bold tracking-[2px] uppercase bg-[#1400FF] text-white px-2.5 py-[4px] mb-3">
                     {slide.tag}
@@ -139,10 +137,9 @@ export function PortfolioSlider() {
             </div>
           ))}
         </div>
-      </div>
+      </Container>
 
-      {/* Точки + счётчик */}
-      <div className="px-5 sm:px-8 md:px-14 mt-5 flex items-center justify-between">
+      <Container className="mt-5 flex items-center justify-between">
         <div className="flex gap-2 items-center">
           {SLIDES.map((_, idx) => (
             <button
@@ -163,7 +160,7 @@ export function PortfolioSlider() {
         <div className="font-garet text-xs font-bold text-[#666] tracking-[2px]">
           {String(current + 1).padStart(2, '0')} / {String(SLIDES.length).padStart(2, '0')}
         </div>
-      </div>
+      </Container>
     </section>
   )
 }

@@ -3,6 +3,7 @@ import { AccountNav } from '../components/AccountNav'
 import { PlansModal } from '../components/PlansModal'
 import { Logo } from '../components/Logo'
 import type { User, Subscription, Order, OrderStatus } from '../types'
+import { Container } from '../components/Container'
 
 const TelegramIcon = ({ size = 20 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="white">
@@ -263,7 +264,7 @@ export function AccountPage() {
     <div className="bg-[#F4F5F9] min-h-screen text-[#080808]">
       <AccountNav />
 
-      <div className="w-full px-5 sm:px-8 md:px-14 py-8 md:py-12 pb-16 md:pb-20">
+      <Container className="py-8 md:py-12 pb-16 md:pb-20">
         {!user ? (
           <AuthScreen onLogin={handleLogin} />
         ) : (
@@ -310,7 +311,7 @@ export function AccountPage() {
             </div>
           </div>
         )}
-      </div>
+      </Container>
 
       <PlansModal open={plansOpen} onClose={() => setPlansOpen(false)} onSelect={handleSelectPlan} />
     </div>

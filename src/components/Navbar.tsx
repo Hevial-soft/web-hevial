@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Logo } from './Logo'
+import { Container } from './Container'
 
 const NAV_LINKS = [
   { href: '/account', label: 'Личный кабинет', anchor: null },
@@ -20,7 +21,6 @@ export function Navbar() {
     setMenuOpen(false)
     if (location.pathname !== '/') {
       navigate('/')
-      // Ждём пока страница загрузится, потом скроллим
       setTimeout(() => {
         document.getElementById(anchor)?.scrollIntoView({ behavior: 'smooth' })
       }, 100)
@@ -40,7 +40,7 @@ export function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-black/[0.07]">
-      <div className="w-full flex items-center justify-between px-5 sm:px-8 md:px-14 py-4 md:py-[18px]">
+      <Container className="flex items-center justify-between py-4 md:py-[18px]">
         <Logo />
 
         {/* Desktop */}
@@ -82,7 +82,7 @@ export function Navbar() {
           <span className="block h-[2px] bg-[#1400FF] transition-all duration-200"
             style={{ transform: menuOpen ? 'translateY(-7px) rotate(-45deg)' : 'none' }} />
         </button>
-      </div>
+      </Container>
 
       {/* Mobile dropdown */}
       <div
