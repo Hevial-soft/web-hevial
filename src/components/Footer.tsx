@@ -14,6 +14,7 @@ export function Footer() {
   return (
     <footer className="bg-white border-t border-black/[0.07] pt-10 pb-8">
       <Container>
+        {/* Top row */}
         <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6">
           <div>
             <div className="text-[13px] font-bold text-[#080808] mb-3.5">Наши соцсети</div>
@@ -37,9 +38,21 @@ export function Footer() {
             <div className="text-[8px] font-semibold tracking-[2px] text-[#666] uppercase">@HevialPrintBot</div>
           </div>
         </div>
+
+        {/* Bottom row */}
         <div className="mt-8 pt-5 border-t border-black/[0.06] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <Logo size="sm" />
-          <div className="text-[11px] text-[#666]">© 2025 Hevial. Все права защищены.</div>
+          <div className="flex items-center gap-5">
+            <a
+              href="/Hevial_Oferta.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[11px] text-[#666] no-underline transition-colors duration-150 hover:text-[#1400FF]"
+            >
+              Оферта
+            </a>
+            <div className="text-[11px] text-[#666]">© 2025 Hevial. Все права защищены.</div>
+          </div>
         </div>
       </Container>
     </footer>
