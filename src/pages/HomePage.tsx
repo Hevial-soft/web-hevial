@@ -91,12 +91,11 @@ export function HomePage() {
               className="font-garet font-extrabold leading-[1.06] tracking-[-1.5px] text-[#080808] mb-6 md:mb-7 animate-fadeUp-2"
               style={{ fontSize: 'clamp(32px, 6vw, 60px)' }}
             >
-              Печатаем <em className="not-italic text-[#1400FF]">детали</em>{' '}
-              любой сложности
+              Быстро.<br />  
+              Современно.<br /><em className="not-italic text-[#1400FF]">Под ключ.</em>{' '}
             </h1>
             <p className="text-sm md:text-[15px] leading-[1.75] text-[#555] mb-8 md:mb-11 animate-fadeUp-3">
-              Заказ через Telegram-бот за 2 минуты. Доставка по всей России.
-              Никаких лишних звонков — от заявки до готовой детали.
+              3D-печать, реверс-инжиниринг и моделирование — всё в одном месте. Оформите заказ за 2 минуты через бот, выберите доставку и получите готовую деталь.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-3.5 animate-fadeUp-4">
               <a
