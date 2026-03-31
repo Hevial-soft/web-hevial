@@ -6,13 +6,12 @@ services:
     container_name: hevial-frontend
 
   nginx:
-    image: nginx:alpine
+    build: ./frontend 
     container_name: hevial-nginx
     ports:
       - "80:80"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./frontend/dist:/usr/share/nginx/html
     depends_on:
       - frontend
       - backend
@@ -21,4 +20,4 @@ services:
     build: ./backend
     container_name: hevial-backend
     ports:
-      - "5000:5000"
+      - "5001:5000"
