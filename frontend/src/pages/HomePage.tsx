@@ -4,6 +4,7 @@ import { MarqueeStrip } from '../components/MarqueeStrip'
 import { PortfolioSlider } from '../components/PortfolioSlider'
 import { Footer } from '../components/Footer'
 import { Container } from '../components/Container'
+import { OrderForm } from '../components/OrderForm'
 
 const TelegramIcon = ({ size = 20 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="white">
@@ -127,6 +128,51 @@ export function HomePage() {
       </section>
 
       <PortfolioSlider />
+      
+      <section id="order" className="py-16 md:py-24 bg-white border-t border-black/[0.06]">
+        <Container>
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_420px] gap-10 md:gap-16 items-start">
+      
+            {/* Левая часть — текст */}
+            <div>
+              <div className="text-[10px] font-bold tracking-[5px] text-[#1400FF] uppercase mb-5">
+                Оставить заявку
+              </div>
+              <h2 className="font-garet font-extrabold text-[#080808] leading-[1.1] tracking-[-1px] mb-5"
+                style={{ fontSize: 'clamp(24px, 4vw, 38px)' }}>
+                Расскажите о задаче — мы сделаем всё остальное
+              </h2>
+              <p className="text-sm text-[#555] leading-[1.75] mb-8">
+                Заполните форму — специалист свяжется с вами, уточнит детали и назовёт точную стоимость.
+                Или оформите заказ сразу через бот.
+              </p>
+      
+              {/* Преимущества */}
+              <div className="flex flex-col gap-4">
+                {[
+                  { icon: '⚡', title: 'Быстрый ответ', desc: 'В течение 2 часов в рабочее время' },
+                  { icon: '💰', title: 'Точная цена', desc: 'Без скрытых платежей после подтверждения' },
+                  { icon: '🔒', title: 'Оплата после фото', desc: 'Деньги списываются только когда вы одобрили результат' },
+                ].map(item => (
+                  <div key={item.title} className="flex items-start gap-4">
+                    <div className="w-9 h-9 bg-[#1400FF]/[0.06] flex items-center justify-center text-base flex-shrink-0">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <div className="text-xs font-bold text-[#080808] mb-0.5">{item.title}</div>
+                      <div className="text-xs text-[#777] leading-relaxed">{item.desc}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+      
+            {/* Правая часть — форма */}
+            <OrderForm />
+      
+          </div>
+        </Container>
+      </section>
 
       {/* ── CONTACTS ── */}
       <section id="contacts" className="py-14 md:py-20 bg-[#F4F5F9] border-t border-black/[0.06]">
