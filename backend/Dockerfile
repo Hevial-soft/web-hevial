@@ -1,13 +1,23 @@
+# Используем легковесный Node.js образ
+FROM node:18-alpine
 
-FROM node:20-alpine
-
+# Рабочая директория внутри контейнера
 WORKDIR /app
 
+# Копируем package.json и lock-файл
 COPY package*.json ./
+
+# Устанавливаем зависимости
 RUN npm install --production
 
+# Копируем остальной код
 COPY . .
 
-EXPOSE 3001
+# Переменная окружения
+ENV NODE_ENV=production
 
-CMD ["node", "src/server.js"]
+# Порт (замени если у тебя другой)
+EXPOSE 3000
+
+# Команда запуска
+CMD ["node", "src/index.js"]
